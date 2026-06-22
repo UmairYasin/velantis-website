@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+---
+
+<Layout title="Team">
+	<section class="mx-auto max-w-6xl px-6 pt-16 pb-12">
+		<Eyebrow text="Team" />
+		<h1 class="max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">Founder</h1>
+	</section>
+
+	<section class="border-t border-white/10 bg-white/[0.02]">
+		<div class="mx-auto max-w-3xl px-6 py-16">
+			<div class="rounded-2xl border border-white/10 bg-slate-950 p-8">
+				<h2 class="text-xl font-semibold text-white">Umair Yasin</h2>
+				<p class="mt-1 text-sm text-cyan-400">Founder, Velantis</p>
+				<p class="mt-4 text-slate-400">
+					Building Velantis end-to-end — the agentic AI pipeline, the microservices platform, and the
+					HL7/FHIR integration layer underneath it. Velantis was submitted to the HL7 International AI
+					Competition as a working demonstration of agentic AI applied to healthcare integration.
+				</p>
+				<a href="mailto:umairyasin6@gmail.com" class="mt-4 inline-block text-sm font-medium text-cyan-400 hover:text-cyan-300">
+					umairyasin6@gmail.com
+				</a>
+			</div>
+			<p class="mt-6 text-sm text-slate-500">
+				We're assembling a small founding team and advisory group ahead of the Q3 2026 design-partner pilot.
+			</p>
+		</div>
+	</section>
+</Layout>

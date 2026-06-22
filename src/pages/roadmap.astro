@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+
+const phases = [
+	{
+		phase: 'Pre-pilot engineering',
+		timeline: 'Now',
+		status: 'In progress',
+		scope: 'Seven of nine backend services implemented: channel runtime, connector SPI with five production connectors, AI-agent orchestration, LLM gateway, API gateway, RBAC/identity, audit, and configuration management. The agentic pipeline generates and validates HL7v2 → FHIR R4 channels end-to-end in a development environment.',
+	},
+	{
+		phase: 'Design Partner Pilot',
+		timeline: 'Q3 2026',
+		status: 'Next',
+		scope: '3–5 mid-sized hospital systems and specialty clinics, focused on HL7v2 ADT/ORU/ORM feeds and FHIR-based EHR integration. Target: replace a single legacy engine per site.',
+	},
+	{
+		phase: 'Regional Health Network Rollout',
+		timeline: 'Q1 2027',
+		status: 'Planned',
+		scope: 'Scale to 15–25 sites across a regional IDN, including HIE connectivity and state immunization registry feeds.',
+	},
+	{
+		phase: 'Production SaaS GA',
+		timeline: 'Q3 2027',
+		status: 'Planned',
+		scope: 'Multi-tenant SaaS on OCI/AWS/Azure with single-tenant and on-premise options for data-sovereignty-sensitive customers.',
+	},
+];
+---
+
+<Layout title="Roadmap">
+	<section class="mx-auto max-w-6xl px-6 pt-16 pb-12">
+		<Eyebrow text="Roadmap & Traction" />
+		<h1 class="max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
+			From pre-pilot to multi-tenant SaaS GA.
+		</h1>
+		<p class="mt-6 max-w-2xl text-lg text-slate-400">
+			Scale targets are derived from production interface-engine benchmarks: 1,000+ messages/second per
+			channel instance, 99.95% platform uptime, 99.9% per-channel uptime.
+		</p>
+	</section>
+
+	<section class="border-t border-white/10 bg-white/[0.02]">
+		<div class="mx-auto max-w-6xl px-6 py-16">
+			<div class="relative space-y-8 border-l border-white/10 pl-8">
+				{
+					phases.map((p) => (
+						<div class="relative">
+							<span class="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full border-2 border-slate-950 bg-cyan-400" />
+							<div class="flex flex-wrap items-baseline gap-3">
+								<h3 class="text-lg font-semibold text-white">{p.phase}</h3>
+								<span class="rounded-full border border-white/15 px-3 py-0.5 text-xs font-medium text-slate-300">
+									{p.timeline}
+								</span>
+								<span class="text-xs font-medium uppercase tracking-wide text-cyan-400">{p.status}</span>
+							</div>
+							<p class="mt-2 max-w-2xl text-sm text-slate-400">{p.scope}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-6xl px-6 py-20">
+		<h2 class="text-2xl font-bold text-white">Why now</h2>
+		<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+			<div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+				<h3 class="text-base font-semibold text-white">For integration teams</h3>
+				<p class="mt-2 text-sm text-slate-400">
+					Healthcare integration teams are chronically understaffed. Velantis reduces channel build time
+					by 95%+ and automates the response to schema drift and terminology updates — the two dominant
+					causes of silent interface failure.
+				</p>
+			</div>
+			<div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+				<h3 class="text-base font-semibold text-white">For clinicians and patients</h3>
+				<p class="mt-2 text-sm text-slate-400">
+					Self-healing integration measurably reduces clinician-observable interface defects — a 15–30%
+					reduction is a realistic anticipated outcome — and lets a regional HIE onboard a new site in
+					days instead of months.
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>

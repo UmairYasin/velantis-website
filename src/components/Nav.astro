@@ -1,0 +1,42 @@
+---
+const links = [
+	{ href: '/', label: 'Home' },
+	{ href: '/product', label: 'Product' },
+	{ href: '/technology', label: 'Technology' },
+	{ href: '/security', label: 'Security' },
+	{ href: '/roadmap', label: 'Roadmap' },
+	{ href: '/team', label: 'Team' },
+];
+
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+		<a href="/" class="flex items-center gap-2 text-lg font-semibold text-white">
+			<span class="inline-block h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+			Velantis
+		</a>
+		<nav class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+			{
+				links.map((link) => (
+					<a
+						href={link.href}
+						class:list={[
+							'transition hover:text-white',
+							currentPath === link.href && 'text-white',
+						]}
+					>
+						{link.label}
+					</a>
+				))
+			}
+		</nav>
+		<a
+			href="/contact"
+			class="rounded-full bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+		>
+			Talk to us
+		</a>
+	</div>
+</header>
